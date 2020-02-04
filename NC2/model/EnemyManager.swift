@@ -26,7 +26,7 @@ class EnemiesManager: GameObject {
     
     func spawnEnemy() {
         let newEnemyNode = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
-        newEnemyNode.position = CGPoint(x: self.getScreenWidth() ?? 0, y: 0)
+        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: 0)
         
         let newEnemy = Enemy(newEnemyNode)
         

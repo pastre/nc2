@@ -28,7 +28,12 @@ class GameObject {
     }
     
     func getScreenWidth() -> CGFloat {
-        return self.node.scene?.view?.frame.width ?? 0 / 2
+        return UIScreen.main.bounds.width / 2
+    }
+    
+    
+    func getScreenHeight() -> CGFloat {
+        return UIScreen.main.bounds.height / 2
     }
     
 }
