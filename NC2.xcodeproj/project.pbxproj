@@ -66,6 +66,7 @@
 		D7BDBF0223E9D785003D47C6 /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				D7BDBF2323E9FC8E003D47C6 /* model */,
 				D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */,
 				D7BDBF0523E9D785003D47C6 /* GameScene.sks */,
 				D7BDBF0923E9D785003D47C6 /* GameScene.swift */,
@@ -74,12 +75,19 @@
 				D7BDBF1023E9D786003D47C6 /* Assets.xcassets */,
 				D7BDBF1223E9D786003D47C6 /* LaunchScreen.storyboard */,
 				D7BDBF1523E9D786003D47C6 /* Info.plist */,
+			);
+			path = NC2;
+			sourceTree = "<group>";
+		};
+		D7BDBF2323E9FC8E003D47C6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D7BDBF2123E9E2AA003D47C6 /* EnemyManager.swift */,
 				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,
 				D7BDBF1D23E9DE81003D47C6 /* Enemy.swift */,
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
-				D7BDBF2123E9E2AA003D47C6 /* EnemyManager.swift */,
 			);
-			path = NC2;
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

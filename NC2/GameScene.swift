@@ -44,6 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerNode.physicsBody?.contactTestBitMask = ContactMask.enemy.rawValue
         playerNode.physicsBody?.restitution = 0
         
+
         self.physicsWorld.contactDelegate = self
     }
     
