@@ -24,13 +24,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let ground = self.childNode(withName: "ground")!
         let playerNode = childNode(withName: "player") as! SKSpriteNode
         let enemyNode = SKSpriteNode()
-        let enemiesNode = SKNode()
         
         self.player = Player(playerNode)
         self.enemiesManager = EnemiesManager(enemyNode)
     
         self.addChild(enemyNode)
-        self.addChild(enemiesNode)
         
         self.gameObjects.append(player)
         self.gameObjects.append(enemiesManager)
@@ -44,8 +42,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerNode.physicsBody?.contactTestBitMask = ContactMask.enemy.rawValue
         playerNode.physicsBody?.restitution = 0
         
+//        enemyNode.position = CGPoint(x: view.frame.width / 2, y: 0)
 
         self.physicsWorld.contactDelegate = self
+        
     }
     
     

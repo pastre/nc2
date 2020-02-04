@@ -27,5 +27,9 @@ class GameObject {
         fatalError("\(self) did not implement getNodeName")
     }
     
+    func getScreenWidth() -> CGFloat {
+        return self.node.scene?.view?.frame.width ?? 0 / 2
+    }
+    
 }
 
