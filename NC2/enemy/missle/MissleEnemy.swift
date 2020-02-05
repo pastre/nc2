@@ -17,11 +17,15 @@ class MissleEnemy: Enemy {
     
     let shootThreshold = TimeInterval(5)
     
+    
+    
     override func getPhysicsBody() -> SKPhysicsBody {
         return SKPhysicsBody(circleOfRadius: 20)
     }
     
     override func configureEnemyTextures() {
+        self.stateMachine.enter(MissleTracking.self)
+        
         let sphere = SKShapeNode(circleOfRadius: 20)
         
         sphere.fillColor = .blue
@@ -33,9 +37,9 @@ class MissleEnemy: Enemy {
     }
     
     override func update(_ deltaTime: TimeInterval) {
-        super.update(deltaTime)
+        
         self.timeSinceSpawn += deltaTime
-
+        
         if timeSinceSpawn > self.shootThreshold {
             self.stateMachine.enter(MissleShooting.self)
         }
@@ -44,17 +48,19 @@ class MissleEnemy: Enemy {
             self.updateTracking()
             return
         }
-
-        self.updateShooting()
+        
+        super.update(deltaTime)
+        
     }
     
     func updateTracking() {
+        let x = self.getScreenWidth() - 200
+        let y = self.scene.getPlayer().node.position.y
+        
+        self.node.position = CGPoint(x: x, y: y)
         
     }
     
-    func updateShooting() {
-        
-    }
     
     
     

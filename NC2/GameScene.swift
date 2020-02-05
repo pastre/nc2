@@ -11,9 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var player: Player!
-    var lastUpdate = TimeInterval()
-    var jetpackIsOn = false
+    private var player: Player!
+    private var lastUpdate = TimeInterval()
+    private var jetpackIsOn = false
     
     var enemiesManager: EnemyManager!
     
@@ -111,5 +111,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerCollision(playerNode: SKNode, other: SKNode) {
         print(playerNode.name, other.name)
+    }
+    
+    func getPlayer() -> Player {
+        return self.player
     }
 }
