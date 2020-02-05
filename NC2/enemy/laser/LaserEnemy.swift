@@ -12,10 +12,10 @@ class LaserEnemy: Enemy {
     
     var size: CGSize!
     
-    init(_ node: SKSpriteNode, size: CGSize =  CGSize(width: 20, height: CGFloat.random(in: 50...80))){
+    init(_ node: SKSpriteNode, scene: GameScene, size: CGSize =  CGSize(width: 20, height: CGFloat.random(in: 50...80))){
         self.size = size
         
-        super.init(node)
+        super.init(node, scene: scene)
         
         self.node.zRotation = self.getZRotation()
     }

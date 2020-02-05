@@ -20,19 +20,22 @@ enum ContactMask: UInt32 {
 class EnemyManager: GameObject {
     
     var enemies: [Enemy]! = [Enemy]()
+    
     var spawnRate: TimeInterval = TimeInterval(1)
     var currentTimer: TimeInterval = TimeInterval(0)
     
-    convenience init(_ node: SKSpriteNode, spawnRate: TimeInterval = TimeInterval(1)) {
+    var minY: CGFloat!
+    var maxY: CGFloat!
+    
+    init(_ node: SKSpriteNode, scene: GameScene, spawnRate: TimeInterval = TimeInterval(1)) {
         
-        self.init(node)
+        super.init(node, scene: scene)
         
+        self.minY = self.getScreenHeight() / -2
+        self.maxY = self.getScreenHeight() / 2
         self.spawnRate = spawnRate
     }
     
-    required override init(_ node: SKSpriteNode) {
-        super.init(node)
-    }
     
     func spawnEnemy() {
         let newEnemyNode = self.getEnemyNode()
@@ -76,6 +79,8 @@ class EnemyManager: GameObject {
     func getEnemy(using node: SKSpriteNode) -> Enemy {
         fatalError("\(self) did not implement getEnemyNode")
     }
+    
+    
     
     
 }

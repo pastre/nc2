@@ -21,6 +21,9 @@
 		D7BDBF1E23E9DE81003D47C6 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BDBF1D23E9DE81003D47C6 /* Enemy.swift */; };
 		D7BDBF2023E9DF18003D47C6 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */; };
 		D7BDBF2223E9E2AA003D47C6 /* EnemyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BDBF2123E9E2AA003D47C6 /* EnemyManager.swift */; };
+		D7C3DF1123EB40A5002C891D /* MissleEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1023EB40A5002C891D /* MissleEnemy.swift */; };
+		D7C3DF1323EB40B2002C891D /* MissleEnemyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1223EB40B2002C891D /* MissleEnemyManager.swift */; };
+		D7C3DF1623EB422B002C891D /* MissleStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1523EB422B002C891D /* MissleStates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		D7BDBF1D23E9DE81003D47C6 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		D7BDBF2123E9E2AA003D47C6 /* EnemyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyManager.swift; sourceTree = "<group>"; };
+		D7C3DF1023EB40A5002C891D /* MissleEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissleEnemy.swift; sourceTree = "<group>"; };
+		D7C3DF1223EB40B2002C891D /* MissleEnemyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissleEnemyManager.swift; sourceTree = "<group>"; };
+		D7C3DF1523EB422B002C891D /* MissleStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissleStates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				D705676523EA022000A5E814 /* PlayerStates.swift */,
+				D7C3DF1523EB422B002C891D /* MissleStates.swift */,
 			);
 			path = gameplaykit;
 			sourceTree = "<group>";
@@ -64,6 +71,7 @@
 		D705676923EB0FF300A5E814 /* enemy */ = {
 			isa = PBXGroup;
 			children = (
+				D7C3DF0F23EB408F002C891D /* missle */,
 				D7A26F9623EB2DB2003B3061 /* laser */,
 				D7A26F9523EB2DAA003B3061 /* core */,
 			);
@@ -129,6 +137,15 @@
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		D7C3DF0F23EB408F002C891D /* missle */ = {
+			isa = PBXGroup;
+			children = (
+				D7C3DF1023EB40A5002C891D /* MissleEnemy.swift */,
+				D7C3DF1223EB40B2002C891D /* MissleEnemyManager.swift */,
+			);
+			path = missle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,12 +220,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C3DF1623EB422B002C891D /* MissleStates.swift in Sources */,
 				D7BDBF1C23E9DB8C003D47C6 /* Player.swift in Sources */,
 				D705676623EA022000A5E814 /* PlayerStates.swift in Sources */,
 				D7BDBF1E23E9DE81003D47C6 /* Enemy.swift in Sources */,
 				D7BDBF2023E9DF18003D47C6 /* GameObject.swift in Sources */,
 				D7BDBF2223E9E2AA003D47C6 /* EnemyManager.swift in Sources */,
+				D7C3DF1323EB40B2002C891D /* MissleEnemyManager.swift in Sources */,
 				D7BDBF0A23E9D785003D47C6 /* GameScene.swift in Sources */,
+				D7C3DF1123EB40A5002C891D /* MissleEnemy.swift in Sources */,
 				D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */,
 				D7BDBF0C23E9D785003D47C6 /* GameViewController.swift in Sources */,
 				D705676823EB0D7700A5E814 /* LaserEnemy.swift in Sources */,

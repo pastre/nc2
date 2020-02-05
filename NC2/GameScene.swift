@@ -26,10 +26,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerNode = childNode(withName: "player") as! SKSpriteNode
         let enemyNode = SKSpriteNode()
         
-        self.player = Player(playerNode)
-        self.enemiesManager = LaserEnemyManger(enemyNode)
+        self.player = Player(playerNode, scene: self)
+        self.enemiesManager = MissleEnemyManager(enemyNode, scene: self)
     
-        
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
         ground.physicsBody?.collisionBitMask = ContactMask.player.rawValue
         ground.physicsBody?.contactTestBitMask = ContactMask.none.rawValue

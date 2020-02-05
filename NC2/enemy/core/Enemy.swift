@@ -15,8 +15,8 @@ class Enemy: GameObject {
     var hasSpawned: Bool! = false
     var isDead: Bool = false
     
-    override init(_ node: SKSpriteNode) {
-        super.init(node)
+    override init(_ node: SKSpriteNode, scene: GameScene) {
+        super.init(node, scene: scene)
         
         let body = self.getPhysicsBody()
         

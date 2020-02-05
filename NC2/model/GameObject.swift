@@ -12,10 +12,12 @@ import SpriteKit
 class GameObject {
     
     var node: SKSpriteNode!
+    var scene: GameScene
     
-    init(_ node: SKSpriteNode) {
+    init(_ node: SKSpriteNode, scene: GameScene) {
         self.node = node
         
+        self.scene = scene
         self.node.name = self.getNodeName()
     }
 

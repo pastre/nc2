@@ -15,8 +15,8 @@ class Player: GameObject {
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
-    required override init(_ node: SKSpriteNode) {
-        super.init(node)
+    override init(_ node: SKSpriteNode, scene: GameScene) {
+        super.init(node, scene: scene)
         
         self.stateMachine.enter(PlayerRunning.self)
     }

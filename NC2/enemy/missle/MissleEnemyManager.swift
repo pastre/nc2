@@ -1,5 +1,5 @@
 //
-//  LaserEnemyManger.swift
+//  MissleEnemyManager.swift
 //  NC2
 //
 //  Created by Bruno Pastre on 05/02/20.
@@ -8,18 +8,18 @@
 
 import SpriteKit
 
-class LaserEnemyManger: EnemyManager  {
+class MissleEnemyManager: EnemyManager {
     
     override func getEnemyNode() -> SKSpriteNode {
         let newEnemyNode = SKSpriteNode()
         
-        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: CGFloat.random(in: self.minY...self.maxY))
+        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: 0)
         
         return newEnemyNode
     }
     
     override func getEnemy(using node: SKSpriteNode) -> Enemy {
-        return LaserEnemy(node, scene: self.scene)
+        return MissleEnemy(node, scene: self.scene)
     }
     
 }
