@@ -15,7 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastUpdate = TimeInterval()
     var jetpackIsOn = false
     
-    var enemiesManager: EnemiesManager!
+    var enemiesManager: EnemyManager!
     
     var gameObjects = [GameObject]()
     
@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let enemyNode = SKSpriteNode()
         
         self.player = Player(playerNode)
-        self.enemiesManager = EnemiesManager(enemyNode)
+        self.enemiesManager = EnemyManager(enemyNode)
     
         
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue

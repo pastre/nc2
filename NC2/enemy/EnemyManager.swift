@@ -17,12 +17,17 @@ enum ContactMask: UInt32 {
     case none = 0b00000000000000000000000000000000
 }
 
-class EnemiesManager: GameObject {
+class EnemyManager: GameObject {
     
     var enemies: [Enemy]! = [Enemy]()
-    var timer: TimeInterval = TimeInterval(1)
+    var spawnRate: TimeInterval = TimeInterval(1)
     var currentTimer: TimeInterval = TimeInterval(0)
     
+    init(_ node: SKSpriteNode, spawnRate: TimeInterval) {
+        super.init(node)
+        
+        self.spawnRate = spawnRate
+    }
     
     func spawnEnemy() {
         let newEnemyNode = SKSpriteNode()
@@ -38,13 +43,13 @@ class EnemiesManager: GameObject {
     
     override func update(_ deltaTime: TimeInterval) {
         
-        currentTimer += deltaTime
+        self.currentTimer += deltaTime
 
-        if currentTimer >= timer {
+        if currentTimer >= spawnRate {
             
             self.spawnEnemy()
             
-            currentTimer -= timer
+            currentTimer -= spawnRate
         }
         
         self.enemies.forEach { $0.update(deltaTime)}

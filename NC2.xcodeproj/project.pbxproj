@@ -64,6 +64,7 @@
 			children = (
 				D7BDBF1D23E9DE81003D47C6 /* Enemy.swift */,
 				D705676723EB0D7700A5E814 /* LaserEnemy.swift */,
+				D7BDBF2123E9E2AA003D47C6 /* EnemyManager.swift */,
 			);
 			path = enemy;
 			sourceTree = "<group>";
@@ -105,7 +106,6 @@
 		D7BDBF2323E9FC8E003D47C6 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D7BDBF2123E9E2AA003D47C6 /* EnemyManager.swift */,
 				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
 			);
