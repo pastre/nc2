@@ -23,20 +23,23 @@ class EnemyManager: GameObject {
     var spawnRate: TimeInterval = TimeInterval(1)
     var currentTimer: TimeInterval = TimeInterval(0)
     
-    init(_ node: SKSpriteNode, spawnRate: TimeInterval) {
-        super.init(node)
+    convenience init(_ node: SKSpriteNode, spawnRate: TimeInterval = TimeInterval(1)) {
+        
+        self.init(node)
         
         self.spawnRate = spawnRate
     }
     
+    required override init(_ node: SKSpriteNode) {
+        super.init(node)
+    }
+    
     func spawnEnemy() {
-        let newEnemyNode = SKSpriteNode()
-        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: CGFloat.random(in: -self.getScreenHeight()...self.getScreenHeight()))
+        let newEnemyNode = self.getEnemyNode()
         
-        let newEnemy = LaserEnemy(newEnemyNode)
+        let newEnemy = self.getEnemy(using: newEnemyNode)
         
         self.enemies.append(newEnemy)
-        
         self.node.addChild(newEnemy.node)
     }
     
@@ -65,5 +68,14 @@ class EnemyManager: GameObject {
     override func getNodeName() -> String {
         return "enemiesManager"
     }
+    
+    func getEnemyNode() -> SKSpriteNode {
+        fatalError("\(self) did not implement getEnemyNode")
+    }
+    
+    func getEnemy(using node: SKSpriteNode) -> Enemy {
+        fatalError("\(self) did not implement getEnemyNode")
+    }
+    
     
 }
