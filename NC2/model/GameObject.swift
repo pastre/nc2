@@ -18,6 +18,7 @@ class GameObject {
         
         self.node.name = self.getNodeName()
     }
+
     
     func update(_ deltaTime: TimeInterval) {
         

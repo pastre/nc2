@@ -25,10 +25,10 @@ class EnemiesManager: GameObject {
     
     
     func spawnEnemy() {
-        let newEnemyNode = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
-        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: 0)
+        let newEnemyNode = SKSpriteNode()
+        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: CGFloat.random(in: -self.getScreenHeight()...self.getScreenHeight()))
         
-        let newEnemy = Enemy(newEnemyNode)
+        let newEnemy = LaserEnemy(newEnemyNode)
         
         self.enemies.append(newEnemy)
         
@@ -41,6 +41,7 @@ class EnemiesManager: GameObject {
         currentTimer += deltaTime
 
         if currentTimer >= timer {
+            
             self.spawnEnemy()
             
             currentTimer -= timer

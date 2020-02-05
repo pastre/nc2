@@ -12,6 +12,7 @@ import GameplayKit
 class Player: GameObject {
     
     var isJetpackOn = false
+    
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
     override init(_ node: SKSpriteNode) {
@@ -26,8 +27,9 @@ class Player: GameObject {
     
     override func update(_ deltaTime: TimeInterval) {
         let body = self.node.physicsBody!
+        
         if isJetpackOn {
-            body.applyForce(CGVector(dx: 0, dy: 100))
+            body.applyForce(CGVector(dx: 0, dy: 150))
             
         }
 

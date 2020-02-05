@@ -18,7 +18,17 @@ class Enemy: GameObject {
     override init(_ node: SKSpriteNode) {
         super.init(node)
         
-        let body = SKPhysicsBody(circleOfRadius: node.frame.width / 2)
+        let body = self.getPhysicsBody()
+        
+        self.configureEnemyPhysics(body)
+        self.configureEnemyTextures()
+    }
+    
+    func configureEnemyTextures() {
+        // Metodo abstrato chamado no init para configurar as texturas
+    }
+
+    func configureEnemyPhysics(_ body: SKPhysicsBody) {
         
         body.affectedByGravity = false
         body.allowsRotation = false
@@ -30,7 +40,7 @@ class Enemy: GameObject {
         body.contactTestBitMask = ContactMask.player.rawValue
         
         node.physicsBody = body
-        
+
     }
     
     override func update(_ deltaTime: TimeInterval) {
@@ -40,6 +50,10 @@ class Enemy: GameObject {
         
         node.position.x -= displacement
         
+    }
+    
+    func getPhysicsBody() -> SKPhysicsBody {
+        fatalError("\(self) did not implement getPhysicsBody")
     }
     
     override func getNodeName() -> String {

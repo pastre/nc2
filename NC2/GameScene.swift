@@ -22,28 +22,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         let ground = self.childNode(withName: "ground")!
+        let ceiling = self.childNode(withName: "ceiling")!
         let playerNode = childNode(withName: "player") as! SKSpriteNode
         let enemyNode = SKSpriteNode()
         
         self.player = Player(playerNode)
         self.enemiesManager = EnemiesManager(enemyNode)
     
-        self.addChild(enemyNode)
-        
-        self.gameObjects.append(player)
-        self.gameObjects.append(enemiesManager)
         
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
         ground.physicsBody?.collisionBitMask = ContactMask.player.rawValue
         ground.physicsBody?.contactTestBitMask = ContactMask.none.rawValue
+        
+        ceiling.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
+        ceiling.physicsBody?.collisionBitMask = ContactMask.player.rawValue
+        ceiling.physicsBody?.contactTestBitMask = ContactMask.none.rawValue
         
         playerNode.physicsBody?.categoryBitMask = ContactMask.player.rawValue
         playerNode.physicsBody?.collisionBitMask = ContactMask.ground.rawValue
         playerNode.physicsBody?.contactTestBitMask = ContactMask.enemy.rawValue
         playerNode.physicsBody?.restitution = 0
         
-//        enemyNode.position = CGPoint(x: view.frame.width / 2, y: 0)
-
+        self.addChild(enemyNode)
+        
+        self.gameObjects.append(player)
+        self.gameObjects.append(enemiesManager)
+        
         self.physicsWorld.contactDelegate = self
         
     }
