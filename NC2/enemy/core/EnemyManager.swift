@@ -31,41 +31,35 @@ class EnemyManager: GameObject {
         
         super.init(node, scene: scene)
         
-        self.minY = self.getScreenHeight() / -2
-        self.maxY = self.getScreenHeight() / 2
+        self.minY = GameObject.self.getScreenHeight() / -2
+        self.maxY = GameObject.getScreenHeight() / 2
         self.spawnRate = spawnRate
     }
     
-    
-    func spawnEnemy() {
+    func spawnEnemy(on node: SKNode) {
         let newEnemyNode = self.getEnemyNode()
         
         let newEnemy = self.getEnemy(using: newEnemyNode)
         
         self.enemies.append(newEnemy)
-        self.node.addChild(newEnemy.node)
+        node.addChild(newEnemy.node)
     }
-    
     
     override func update(_ deltaTime: TimeInterval) {
         
         self.currentTimer += deltaTime
-
-        if currentTimer >= spawnRate {
-            
-            self.spawnEnemy()
-            
-            currentTimer -= spawnRate
-        }
         
         self.enemies.forEach { $0.update(deltaTime)}
         
         self.enemies.forEach { (enemy) in
-            if enemy.node.position.x < -self.getScreenWidth()  {
+            if enemy.node.position.x < -GameObject.getScreenWidth()  {
                 enemy.node.removeFromParent()
             }
         }
-        
+    }
+    
+    func clearAll() {
+        self.enemies.forEach { $0.node.removeFromParent() }
     }
     
     override func getNodeName() -> String {
@@ -80,7 +74,12 @@ class EnemyManager: GameObject {
         fatalError("\(self) did not implement getEnemyNode")
     }
     
+    func canSpawn() -> Bool {
+        return self.currentTimer >= self.spawnRate
+    }
     
-    
+    func resetSpawnTimer() {
+        self.currentTimer -= self.spawnRate
+    }
     
 }

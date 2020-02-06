@@ -10,10 +10,9 @@ import SpriteKit
 
 class Enemy: GameObject {
     
-    var speed: CGFloat = 100
-    
     var hasSpawned: Bool! = false
     var isDead: Bool = false
+    var speed: CGFloat! = 100
     
     override init(_ node: SKSpriteNode, scene: GameScene) {
         super.init(node, scene: scene)
@@ -22,12 +21,13 @@ class Enemy: GameObject {
         
         self.configureEnemyPhysics(body)
         self.configureEnemyTextures()
+        
     }
     
     func configureEnemyTextures() {
         // Metodo abstrato chamado no init para configurar as texturas
     }
-
+    
     func configureEnemyPhysics(_ body: SKPhysicsBody) {
         
         body.affectedByGravity = false
@@ -49,6 +49,8 @@ class Enemy: GameObject {
         
         
         node.position.x -= displacement
+        
+        
         
     }
     

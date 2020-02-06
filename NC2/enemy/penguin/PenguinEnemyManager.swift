@@ -1,5 +1,5 @@
 //
-//  LaserEnemyManger.swift
+//  PenguinEnemyManager.swift
 //  NC2
 //
 //  Created by Bruno Pastre on 05/02/20.
@@ -8,18 +8,17 @@
 
 import SpriteKit
 
-class LaserEnemyManger: EnemyManager  {
+class PenguinEnemyManager: EnemyManager {
     
     override func getEnemyNode() -> SKSpriteNode {
         let newEnemyNode = SKSpriteNode()
         
-        newEnemyNode.position = CGPoint(x: GameObject.getScreenWidth(), y: CGFloat.random(in: self.minY...self.maxY))
+        newEnemyNode.position = CGPoint(x: GameObject.getScreenWidth(), y: GameObject.getScreenHeight())
         
         return newEnemyNode
     }
     
     override func getEnemy(using node: SKSpriteNode) -> Enemy {
-        return LaserEnemy(node, scene: self.scene)
+        return PenguinEnemy(node, scene: self.scene)
     }
-    
 }

@@ -30,12 +30,12 @@ class GameObject {
         fatalError("\(self) did not implement getNodeName")
     }
     
-    func getScreenWidth() -> CGFloat {
+    static func getScreenWidth() -> CGFloat {
         return UIScreen.main.bounds.width / 2
     }
     
     
-    func getScreenHeight() -> CGFloat {
+    static func getScreenHeight() -> CGFloat {
         return UIScreen.main.bounds.height / 2
     }
     

@@ -15,9 +15,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var lastUpdate = TimeInterval()
     private var jetpackIsOn = false
     
-    var enemiesManager: EnemyManager!
+    var enemiesManager: SpawnCoordinator!
+    
+    var backgroundManager: BackgroundManager!
     
     var gameObjects = [GameObject]()
+    
+    var gameOverLabel = SKLabelNode(text: "Perdeu!!!!")
     
     override func didMove(to view: SKView) {
         
@@ -25,9 +29,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let ceiling = self.childNode(withName: "ceiling")!
         let playerNode = childNode(withName: "player") as! SKSpriteNode
         let enemyNode = SKSpriteNode()
+        let bgRootNode = SKNode()
+        let bgNode = self.childNode(withName: "background") as! SKSpriteNode
+        
+        bgNode.removeFromParent()
+        bgRootNode.zPosition = -1
         
         self.player = Player(playerNode, scene: self)
-        self.enemiesManager = MissleEnemyManager(enemyNode, scene: self)
+        self.enemiesManager = SpawnCoordinator(enemyNode, scene: self)
+        
+        self.backgroundManager = BackgroundManager(root: bgRootNode, background: bgNode)
     
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
         ground.physicsBody?.collisionBitMask = ContactMask.player.rawValue
@@ -42,7 +53,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerNode.physicsBody?.contactTestBitMask = ContactMask.enemy.rawValue
         playerNode.physicsBody?.restitution = 0
         
+        
         self.addChild(enemyNode)
+        self.addChild(bgRootNode)
         
         self.gameObjects.append(player)
         self.gameObjects.append(enemiesManager)
@@ -90,6 +103,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let deltaTime = currentTime - self.lastUpdate
         
+        if deltaTime > 0.1 { return }
+        
+        self.backgroundManager.update(deltaTime)
         self.gameObjects.forEach { $0.update(deltaTime) }
         
         self.lastUpdate = currentTime
@@ -106,11 +122,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.playerCollision(playerNode: nodeB, other: nodeA)
         }
         
+        self.gameOverLabel.color = .link
+    }
+    
+    func onGameOver() {
+        self.enemiesManager.clearAll()
         
+        self.addChild(self.gameOverLabel)
+        
+        DispatchQueue.main.async {
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+                self.gameOverLabel.removeFromParent()
+            }
+        }
     }
     
     func playerCollision(playerNode: SKNode, other: SKNode) {
-        print(playerNode.name, other.name)
+        if other.name!.contains("enemy") {
+            self.onGameOver()
+        }
+        
     }
     
     func getPlayer() -> Player {

@@ -24,6 +24,10 @@
 		D7C3DF1123EB40A5002C891D /* MissleEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1023EB40A5002C891D /* MissleEnemy.swift */; };
 		D7C3DF1323EB40B2002C891D /* MissleEnemyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1223EB40B2002C891D /* MissleEnemyManager.swift */; };
 		D7C3DF1623EB422B002C891D /* MissleStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1523EB422B002C891D /* MissleStates.swift */; };
+		D7C3DF1923EB4A3B002C891D /* PenguinEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1823EB4A3B002C891D /* PenguinEnemy.swift */; };
+		D7C3DF1B23EB4AE7002C891D /* PenguinEnemyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1A23EB4AE7002C891D /* PenguinEnemyManager.swift */; };
+		D7C3DF1D23EB4FC0002C891D /* SpawnCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1C23EB4FC0002C891D /* SpawnCoordinator.swift */; };
+		D7C3DF1F23ECA419002C891D /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3DF1E23ECA418002C891D /* Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		D7C3DF1023EB40A5002C891D /* MissleEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissleEnemy.swift; sourceTree = "<group>"; };
 		D7C3DF1223EB40B2002C891D /* MissleEnemyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissleEnemyManager.swift; sourceTree = "<group>"; };
 		D7C3DF1523EB422B002C891D /* MissleStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissleStates.swift; sourceTree = "<group>"; };
+		D7C3DF1823EB4A3B002C891D /* PenguinEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinEnemy.swift; sourceTree = "<group>"; };
+		D7C3DF1A23EB4AE7002C891D /* PenguinEnemyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinEnemyManager.swift; sourceTree = "<group>"; };
+		D7C3DF1C23EB4FC0002C891D /* SpawnCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnCoordinator.swift; sourceTree = "<group>"; };
+		D7C3DF1E23ECA418002C891D /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +79,11 @@
 		D705676923EB0FF300A5E814 /* enemy */ = {
 			isa = PBXGroup;
 			children = (
+				D7C3DF1723EB4A2C002C891D /* penguin */,
 				D7C3DF0F23EB408F002C891D /* missle */,
 				D7A26F9623EB2DB2003B3061 /* laser */,
 				D7A26F9523EB2DAA003B3061 /* core */,
+				D7C3DF1C23EB4FC0002C891D /* SpawnCoordinator.swift */,
 			);
 			path = enemy;
 			sourceTree = "<group>";
@@ -135,6 +145,7 @@
 			children = (
 				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
+				D7C3DF1E23ECA418002C891D /* Background.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -146,6 +157,15 @@
 				D7C3DF1223EB40B2002C891D /* MissleEnemyManager.swift */,
 			);
 			path = missle;
+			sourceTree = "<group>";
+		};
+		D7C3DF1723EB4A2C002C891D /* penguin */ = {
+			isa = PBXGroup;
+			children = (
+				D7C3DF1823EB4A3B002C891D /* PenguinEnemy.swift */,
+				D7C3DF1A23EB4AE7002C891D /* PenguinEnemyManager.swift */,
+			);
+			path = penguin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +242,10 @@
 			files = (
 				D7C3DF1623EB422B002C891D /* MissleStates.swift in Sources */,
 				D7BDBF1C23E9DB8C003D47C6 /* Player.swift in Sources */,
+				D7C3DF1B23EB4AE7002C891D /* PenguinEnemyManager.swift in Sources */,
 				D705676623EA022000A5E814 /* PlayerStates.swift in Sources */,
+				D7C3DF1F23ECA419002C891D /* Background.swift in Sources */,
+				D7C3DF1923EB4A3B002C891D /* PenguinEnemy.swift in Sources */,
 				D7BDBF1E23E9DE81003D47C6 /* Enemy.swift in Sources */,
 				D7BDBF2023E9DF18003D47C6 /* GameObject.swift in Sources */,
 				D7BDBF2223E9E2AA003D47C6 /* EnemyManager.swift in Sources */,
@@ -232,6 +255,7 @@
 				D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */,
 				D7BDBF0C23E9D785003D47C6 /* GameViewController.swift in Sources */,
 				D705676823EB0D7700A5E814 /* LaserEnemy.swift in Sources */,
+				D7C3DF1D23EB4FC0002C891D /* SpawnCoordinator.swift in Sources */,
 				D7BDBF0423E9D785003D47C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +407,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pastre.github.io.NC2;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.nc2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,7 +425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pastre.github.io.NC2;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.nc2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

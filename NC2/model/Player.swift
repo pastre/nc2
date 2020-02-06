@@ -12,6 +12,9 @@ import GameplayKit
 class Player: GameObject {
     
     var isJetpackOn = false
+    var walkedDistance: CGFloat = 0
+    
+    let walkingSpeed = 100
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
@@ -28,9 +31,10 @@ class Player: GameObject {
     override func update(_ deltaTime: TimeInterval) {
         let body = self.node.physicsBody!
         
+        self.walkedDistance += CGFloat(deltaTime) * CGFloat(self.walkingSpeed)
+        
         if isJetpackOn {
             body.applyForce(CGVector(dx: 0, dy: 150))
-            
         }
 
         self.updatePlayerState(body.velocity.dy)

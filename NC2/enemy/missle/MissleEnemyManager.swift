@@ -13,7 +13,7 @@ class MissleEnemyManager: EnemyManager {
     override func getEnemyNode() -> SKSpriteNode {
         let newEnemyNode = SKSpriteNode()
         
-        newEnemyNode.position = CGPoint(x: self.getScreenWidth(), y: 0)
+        newEnemyNode.position = CGPoint(x: GameObject.getScreenWidth(), y: 0)
         
         return newEnemyNode
     }

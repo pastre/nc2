@@ -14,10 +14,7 @@ class MissleEnemy: Enemy {
     var timeSinceSpawn: TimeInterval = TimeInterval(0)
     let stateMachine = GKStateMachine(states: [MissleTracking(), MissleShooting() ])
     
-    
     let shootThreshold = TimeInterval(5)
-    
-    
     
     override func getPhysicsBody() -> SKPhysicsBody {
         return SKPhysicsBody(circleOfRadius: 20)
@@ -50,19 +47,14 @@ class MissleEnemy: Enemy {
         }
         
         super.update(deltaTime)
-        
     }
     
     func updateTracking() {
-        let x = self.getScreenWidth() - 200
+        let x = GameObject.getScreenWidth() - 200
         let y = self.scene.getPlayer().node.position.y
         
         self.node.position = CGPoint(x: x, y: y)
-        
     }
-    
-    
-    
     
     override func getNodeName() -> String {
         return "enemyMissle"
