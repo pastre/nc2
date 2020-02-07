@@ -103,7 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let deltaTime = currentTime - self.lastUpdate
         
-        if deltaTime > 0.1 { return }
+//        if deltaTime > 0.1 { return }
         
         self.backgroundManager.update(deltaTime)
         self.gameObjects.forEach { $0.update(deltaTime) }

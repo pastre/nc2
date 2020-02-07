@@ -34,11 +34,19 @@ class Player: GameObject {
         self.walkedDistance += CGFloat(deltaTime) * CGFloat(self.walkingSpeed)
         
         if isJetpackOn {
-            body.applyForce(CGVector(dx: 0, dy: 150))
+            
+            if self.stateMachine.currentState is PlayerFalling {
+                body.velocity.dy = 0
+            }
+            
+            body.applyForce(CGVector(dx: 0, dy: 100))
+            
         }
+        
 
         self.updatePlayerState(body.velocity.dy)
     }
+    
     
     func updatePlayerState(_ dy: CGFloat) {
 
