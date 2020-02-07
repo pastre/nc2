@@ -35,11 +35,11 @@ class Player: GameObject {
         
         if isJetpackOn {
             
-            if self.stateMachine.currentState is PlayerFalling {
-                body.velocity.dy = 0
-            }
+//            if self.stateMachine.currentState is PlayerFalling {
+//                body.velocity.dy = 0
+//            }
             
-            body.applyForce(CGVector(dx: 0, dy: 100))
+            body.applyForce(CGVector(dx: 0, dy: 150))
             
         }
         
