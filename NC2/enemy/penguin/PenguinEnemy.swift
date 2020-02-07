@@ -14,10 +14,9 @@ class PenguinEnemy: Enemy {
     var gravity: CGFloat = 50
     
     override func getPhysicsBody() -> SKPhysicsBody {
-        let body = SKPhysicsBody(circleOfRadius: 20)
+        let texture = SKTexture(imageNamed: "penguin")
+        let body = SKPhysicsBody(texture: texture, alphaThreshold: 0.9, size: texture.size())
         
-//        body.affectedByGravity = true
-//        body.mass = 10000
         
         self.speed = super.speed * 2
         self.gravity = .random(in: 50...100)
@@ -37,9 +36,8 @@ class PenguinEnemy: Enemy {
     
     
     override func configureEnemyTextures() {
-        let sphere = SKShapeNode(circleOfRadius: 20)
+        let sphere = SKSpriteNode(imageNamed: "penguin")
         
-        sphere.fillColor = .magenta
         
         self.node.addChild(sphere)
     }

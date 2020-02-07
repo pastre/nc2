@@ -12,7 +12,7 @@ class LaserEnemy: Enemy {
     
     var size: CGSize!
     
-    init(_ node: SKSpriteNode, scene: GameScene, size: CGSize =  CGSize(width: 20, height: CGFloat.random(in: 50...80))){
+    init(_ node: SKSpriteNode, scene: GameScene, size: CGSize =  CGSize(width: 20, height: CGFloat.random(in: 60...85))){
         self.size = size
         
         super.init(node, scene: scene)
@@ -25,12 +25,11 @@ class LaserEnemy: Enemy {
         let sphereRadius = self.size.width / 2
         let connectorHeight = self.size.height - (2 * sphereRadius)
         
-        let topSphere = SKShapeNode(circleOfRadius: sphereRadius)
-        let bottomSphere = SKShapeNode(circleOfRadius: sphereRadius)
+        let topSphere = SKSpriteNode(imageNamed: "moss")
+        let bottomSphere = SKSpriteNode(imageNamed: "moss")
         let connector = SKShapeNode(rectOf: CGSize(width: self.size.width / 4, height: connectorHeight))
         
-        topSphere.fillColor = .red
-        bottomSphere.fillColor = .red
+        
         connector.fillColor = .orange
         
         self.node.addChild(topSphere)
