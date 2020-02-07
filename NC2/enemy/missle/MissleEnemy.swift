@@ -17,17 +17,19 @@ class MissleEnemy: Enemy {
     let shootThreshold = TimeInterval(5)
     
     override func getPhysicsBody() -> SKPhysicsBody {
-        return SKPhysicsBody(circleOfRadius: 20)
+        return SKPhysicsBody(texture: SKTexture(imageNamed: "missle"), alphaThreshold: 0.9, size: SKTexture(imageNamed: "missle").size())
     }
     
     override func configureEnemyTextures() {
         self.stateMachine.enter(MissleTracking.self)
         
-        let sphere = SKShapeNode(circleOfRadius: 20)
+//        let sphere = SKShapeNode(circleOfRadius: 20)
+    
+        let node = SKSpriteNode(imageNamed: "missle")
         
-        sphere.fillColor = .blue
+//        sphere.fillColor = .blue
         
-        self.node.addChild(sphere)
+        self.node.addChild(node)
         
         self.speed = 2 * super.speed
         
