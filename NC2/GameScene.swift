@@ -128,6 +128,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func onGameOver() {
         self.enemiesManager.clearAll()
         
+        if self.gameOverLabel.parent != nil { return }
+        
         self.addChild(self.gameOverLabel)
         
         DispatchQueue.main.async {
