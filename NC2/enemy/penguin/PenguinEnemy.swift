@@ -18,7 +18,7 @@ class PenguinEnemy: Enemy {
         let body = SKPhysicsBody(texture: texture, alphaThreshold: 0.9, size: texture.size())
         
         
-        self.speed = super.speed * 2
+        
         self.gravity = .random(in: 50...100)
         
         return body
@@ -40,6 +40,10 @@ class PenguinEnemy: Enemy {
         
         
         self.node.addChild(sphere)
+    }
+    
+    override func getHorizontalSpeed() -> CGFloat {
+        return 2 * super.getHorizontalSpeed()
     }
     
 }

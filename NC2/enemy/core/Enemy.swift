@@ -12,7 +12,7 @@ class Enemy: GameObject {
     
     var hasSpawned: Bool! = false
     var isDead: Bool = false
-    var speed: CGFloat! = 100
+    
     
     override init(_ node: SKSpriteNode, scene: GameScene) {
         super.init(node, scene: scene)
@@ -45,7 +45,7 @@ class Enemy: GameObject {
     
     override func update(_ deltaTime: TimeInterval) {
         
-        let displacement = CGFloat(deltaTime) * speed
+        let displacement = CGFloat(deltaTime) * self.getHorizontalSpeed()
         
         
         node.position.x -= displacement
@@ -60,5 +60,9 @@ class Enemy: GameObject {
     
     override func getNodeName() -> String {
         return "enemy"
+    }
+    
+    func getHorizontalSpeed() -> CGFloat {
+        return SpeedManager.instance.getCurrentSpeed() 
     }
 }

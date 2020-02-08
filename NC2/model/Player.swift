@@ -31,7 +31,7 @@ class Player: GameObject {
     override func update(_ deltaTime: TimeInterval) {
         let body = self.node.physicsBody!
         
-        self.walkedDistance += CGFloat(deltaTime) * CGFloat(self.walkingSpeed)
+        self.walkedDistance += CGFloat(deltaTime) * SpeedManager.instance.getCurrentSpeed()
         
         if isJetpackOn {
             
@@ -57,6 +57,10 @@ class Player: GameObject {
         } else {
             self.stateMachine.enter(PlayerFlying.self)
         }
+    }
+    
+    func reset() {
+        self.walkedDistance = 0
     }
     
     override func getNodeName() -> String {

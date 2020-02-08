@@ -31,7 +31,6 @@ class MissleEnemy: Enemy {
         
         self.node.addChild(node)
         
-        self.speed = 2 * super.speed
         
     }
     
@@ -60,5 +59,9 @@ class MissleEnemy: Enemy {
     
     override func getNodeName() -> String {
         return "enemyMissle"
+    }
+    
+    override func getHorizontalSpeed() -> CGFloat {
+        return 2 * super.getHorizontalSpeed()
     }
 }

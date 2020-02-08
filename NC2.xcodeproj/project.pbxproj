@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D700480223EF10A600623593 /* SpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700480123EF10A600623593 /* SpeedManager.swift */; };
 		D705676623EA022000A5E814 /* PlayerStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705676523EA022000A5E814 /* PlayerStates.swift */; };
 		D705676823EB0D7700A5E814 /* LaserEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705676723EB0D7700A5E814 /* LaserEnemy.swift */; };
 		D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D700480123EF10A600623593 /* SpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedManager.swift; sourceTree = "<group>"; };
 		D705676523EA022000A5E814 /* PlayerStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStates.swift; sourceTree = "<group>"; };
 		D705676723EB0D7700A5E814 /* LaserEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemy.swift; sourceTree = "<group>"; };
 		D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemyManger.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
 				D7C3DF1E23ECA418002C891D /* Background.swift */,
+				D700480123EF10A600623593 /* SpeedManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				D7BDBF0A23E9D785003D47C6 /* GameScene.swift in Sources */,
 				D7C3DF1123EB40A5002C891D /* MissleEnemy.swift in Sources */,
 				D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */,
+				D700480223EF10A600623593 /* SpeedManager.swift in Sources */,
 				D7BDBF0C23E9D785003D47C6 /* GameViewController.swift in Sources */,
 				D705676823EB0D7700A5E814 /* LaserEnemy.swift in Sources */,
 				D7C3DF1D23EB4FC0002C891D /* SpawnCoordinator.swift in Sources */,

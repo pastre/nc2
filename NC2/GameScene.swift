@@ -16,12 +16,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var jetpackIsOn = false
     
     var enemiesManager: SpawnCoordinator!
-    
     var backgroundManager: BackgroundManager!
     
     var gameObjects = [GameObject]()
     
     var gameOverLabel = SKLabelNode(text: "Perdeu!!!!")
+    var scoreLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
         
@@ -37,9 +37,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.player = Player(playerNode, scene: self)
         self.enemiesManager = SpawnCoordinator(enemyNode, scene: self)
-        
         self.backgroundManager = BackgroundManager(root: bgRootNode, background: bgNode)
     
+        self.scoreLabel = self.childNode(withName: "score") as! SKLabelNode
+        
+        SpeedManager.instance.setPlayer(to: self.player)
+        
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
         ground.physicsBody?.collisionBitMask = ContactMask.player.rawValue
         ground.physicsBody?.contactTestBitMask = ContactMask.none.rawValue
@@ -108,6 +111,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.backgroundManager.update(deltaTime)
         self.gameObjects.forEach { $0.update(deltaTime) }
         
+        self.scoreLabel.text = "Score: \(Int(self.player.walkedDistance))"
+        
         self.lastUpdate = currentTime
     }
     
@@ -127,7 +132,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func onGameOver() {
         self.enemiesManager.clearAll()
-        
+        self.player.reset()
         if self.gameOverLabel.parent != nil { return }
         
         self.addChild(self.gameOverLabel)
