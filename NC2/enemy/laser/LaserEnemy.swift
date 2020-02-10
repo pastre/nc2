@@ -23,18 +23,20 @@ class LaserEnemy: Enemy {
     override func configureEnemyTextures() {
         
         let sphereRadius = self.size.width / 2
-        let connectorHeight = self.size.height - (2 * sphereRadius)
         
         let topSphere = SKSpriteNode(imageNamed: "moss")
         let bottomSphere = SKSpriteNode(imageNamed: "moss")
-        let connector = SKShapeNode(rectOf: CGSize(width: self.size.width / 4, height: connectorHeight))
+        let connector = SKSpriteNode(imageNamed: "moss_conector")
         
-        
-        connector.fillColor = .orange
+        connector.scale(to: self.getSize())
         
         self.node.addChild(topSphere)
         self.node.addChild(bottomSphere)
         self.node.addChild(connector)
+        
+        topSphere.zPosition = ZPositionManager.MOSS_BALL.rawValue
+        bottomSphere.zPosition = ZPositionManager.MOSS_BALL.rawValue
+        connector.zPosition = ZPositionManager.MOSS_CONECTOR.rawValue
         
         topSphere.position = CGPoint(x: 0, y: (self.size.height / 2) - sphereRadius)
         bottomSphere.position = CGPoint(x: 0 / 2, y: -(self.size.height / 2) + sphereRadius)
@@ -46,6 +48,12 @@ class LaserEnemy: Enemy {
     override func getPhysicsBody() -> SKPhysicsBody {
         
         return SKPhysicsBody(rectangleOf: self.size)
+    }
+    
+    func getSize() -> CGSize {
+        let sphereRadius = self.size.width / 2
+        let connectorHeight = self.size.height - (2 * sphereRadius)
+        return CGSize(width: self.size.width / 2, height: connectorHeight)
     }
     
     func getZRotation() -> CGFloat {

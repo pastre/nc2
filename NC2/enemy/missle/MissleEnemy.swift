@@ -17,7 +17,7 @@ class MissleEnemy: Enemy {
     let shootThreshold = TimeInterval(5)
     
     override func getPhysicsBody() -> SKPhysicsBody {
-        return SKPhysicsBody(texture: SKTexture(imageNamed: "missle"), alphaThreshold: 0.9, size: SKTexture(imageNamed: "missle").size())
+        return SKPhysicsBody(texture: SKTexture(imageNamed: "missle"), alphaThreshold: 0.9, size: self.getSize())
     }
     
     override func configureEnemyTextures() {
@@ -28,6 +28,9 @@ class MissleEnemy: Enemy {
         let node = SKSpriteNode(imageNamed: "missle")
         
 //        sphere.fillColor = .blue
+        
+        node.scale(to: self.getSize())
+        node.zPosition = ZPositionManager.MISSLE.rawValue
         
         self.node.addChild(node)
         
@@ -55,6 +58,10 @@ class MissleEnemy: Enemy {
         let y = self.scene.getPlayer().node.position.y
         
         self.node.position = CGPoint(x: x, y: y)
+    }
+    
+    func getSize() -> CGSize {
+        return CGSize(width: 60, height: 60 )
     }
     
     override func getNodeName() -> String {

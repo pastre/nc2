@@ -15,7 +15,8 @@ class PenguinEnemy: Enemy {
     
     override func getPhysicsBody() -> SKPhysicsBody {
         let texture = SKTexture(imageNamed: "penguin")
-        let body = SKPhysicsBody(texture: texture, alphaThreshold: 0.9, size: texture.size())
+        
+        let body = SKPhysicsBody(texture: texture, alphaThreshold: 0.9, size: self.getSize())
         
         
         
@@ -38,8 +39,14 @@ class PenguinEnemy: Enemy {
     override func configureEnemyTextures() {
         let sphere = SKSpriteNode(imageNamed: "penguin")
         
+        sphere.scale(to: self.getSize())
+        sphere.zPosition = ZPositionManager.PENGUIN.rawValue
         
         self.node.addChild(sphere)
+    }
+    
+    func getSize() -> CGSize {
+        return CGSize(width: 60, height: 60)
     }
     
     override func getHorizontalSpeed() -> CGFloat {
