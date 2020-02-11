@@ -42,7 +42,7 @@ class BackgroundManager {
             
             self.currentNode = self.nextNode
             
-            pivot!.position.x = self.getImageWidth() // GameObject.getScreenWidth()
+            pivot!.position.x = self.getImageWidth() + 2// GameObject.getScreenWidth()
             
             self.nextNode = pivot
         }

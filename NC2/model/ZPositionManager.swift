@@ -10,7 +10,8 @@ import CoreGraphics
 
 enum ZPositionManager: CGFloat  {
     case MOSS_BALL = 1
-    case BACKGROUND = -1
+    case BACKGROUND = -2
+    case STREET = -1
     case MOSS_CONECTOR = 0
     
     case PENGUIN = 2

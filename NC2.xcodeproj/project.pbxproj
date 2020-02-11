@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D700480223EF10A600623593 /* SpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700480123EF10A600623593 /* SpeedManager.swift */; };
 		D700480423F219C900623593 /* ZPositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700480323F219C900623593 /* ZPositionManager.swift */; };
+		D700480623F2EBFA00623593 /* ScenarioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700480523F2EBFA00623593 /* ScenarioNode.swift */; };
 		D705676623EA022000A5E814 /* PlayerStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705676523EA022000A5E814 /* PlayerStates.swift */; };
 		D705676823EB0D7700A5E814 /* LaserEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705676723EB0D7700A5E814 /* LaserEnemy.swift */; };
 		D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		D700480123EF10A600623593 /* SpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedManager.swift; sourceTree = "<group>"; };
 		D700480323F219C900623593 /* ZPositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPositionManager.swift; sourceTree = "<group>"; };
+		D700480523F2EBFA00623593 /* ScenarioNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioNode.swift; sourceTree = "<group>"; };
 		D705676523EA022000A5E814 /* PlayerStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStates.swift; sourceTree = "<group>"; };
 		D705676723EB0D7700A5E814 /* LaserEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemy.swift; sourceTree = "<group>"; };
 		D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemyManger.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				D7C3DF1E23ECA418002C891D /* Background.swift */,
 				D700480123EF10A600623593 /* SpeedManager.swift */,
 				D700480323F219C900623593 /* ZPositionManager.swift */,
+				D700480523F2EBFA00623593 /* ScenarioNode.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				D700480423F219C900623593 /* ZPositionManager.swift in Sources */,
 				D7C3DF1623EB422B002C891D /* MissleStates.swift in Sources */,
 				D7BDBF1C23E9DB8C003D47C6 /* Player.swift in Sources */,
+				D700480623F2EBFA00623593 /* ScenarioNode.swift in Sources */,
 				D7C3DF1B23EB4AE7002C891D /* PenguinEnemyManager.swift in Sources */,
 				D705676623EA022000A5E814 /* PlayerStates.swift in Sources */,
 				D7C3DF1F23ECA419002C891D /* Background.swift in Sources */,

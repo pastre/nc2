@@ -28,17 +28,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let ground = self.childNode(withName: "ground")!
         let ceiling = self.childNode(withName: "ceiling")!
         let playerNode = childNode(withName: "player") as! SKSpriteNode
+        
         let enemyNode = SKSpriteNode()
         let bgRootNode = SKNode()
+        
         let bgNode = self.childNode(withName: "background") as! SKSpriteNode
         
         bgNode.removeFromParent()
-        bgRootNode.zPosition = -1
+        
+        bgRootNode.zPosition = ZPositionManager.BACKGROUND.rawValue
         
         self.player = Player(playerNode, scene: self)
         self.enemiesManager = SpawnCoordinator(enemyNode, scene: self)
+        
         self.backgroundManager = BackgroundManager(root: bgRootNode, background: bgNode)
-    
+//        self.streetManager = ScenarioNode(reference: streetNode)
+        
         self.scoreLabel = self.childNode(withName: "score") as! SKLabelNode
         
         SpeedManager.instance.setPlayer(to: self.player)
@@ -59,6 +64,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(enemyNode)
         self.addChild(bgRootNode)
+        
+        
+//        streetNode.addChild(streetManager)
         
         self.gameObjects.append(player)
         self.gameObjects.append(enemiesManager)
@@ -108,7 +116,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 //        if deltaTime > 0.1 { return }
         
+//        self.streetManager.update(deltaTime)
         self.backgroundManager.update(deltaTime)
+        
         self.gameObjects.forEach { $0.update(deltaTime) }
         
         self.scoreLabel.text = "Score: \(Int(self.player.walkedDistance))"
