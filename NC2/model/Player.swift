@@ -15,6 +15,9 @@ class Player: GameObject {
     var walkedDistance: CGFloat = 0
     
     let walkingSpeed = 100
+    let maxVal: CGFloat = 150
+    let minVal: CGFloat = -150
+    
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
@@ -33,17 +36,16 @@ class Player: GameObject {
         
         self.walkedDistance += CGFloat(deltaTime) * SpeedManager.instance.getCurrentSpeed()
         
+        
         if isJetpackOn {
             
-//            if self.stateMachine.currentState is PlayerFalling {
-//                body.velocity.dy = 0
-//            }
-            
             body.applyForce(CGVector(dx: 0, dy: 150))
-            
         }
+    
+        let clamp: CGFloat = min(max(body.velocity.dy, self.minVal), self.maxVal)
         
-
+        body.velocity.dy = clamp
+    
         self.updatePlayerState(body.velocity.dy)
     }
     

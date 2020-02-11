@@ -12,17 +12,30 @@ class SpeedManager {
     static let instance = SpeedManager()
     
     private var currentSpeed: CGFloat!
-    private var player: Player!
+    var currentAngle: CGFloat! = -.pi/2
+    let acceleration: CGFloat = 0.01
+    let maxVelocity: CGFloat = 900
+    let minVelocity: CGFloat = 100
+    var radius: CGFloat!
     
     private init() {
-        self.currentSpeed = 100
+        
+        self.currentSpeed = minVelocity
+        self.radius = (maxVelocity - minVelocity) / 2
+        
     }
     
     func getCurrentSpeed() -> CGFloat {
         return self.currentSpeed //1 + self.currentSpeed * (self.player.walkedDistance / 100)
     }
-    
-    func setPlayer(to player: Player) {
-        self.player = player
+
+    func update(_ deltaTime: TimeInterval) {
+        
+        if self.currentSpeed >= self.maxVelocity { return }
+        
+        self.currentAngle += self.acceleration * CGFloat(deltaTime)
+        
+        self.currentSpeed = ((sin(self.currentAngle) + 1 ) * self.radius) + self.minVelocity
+        
     }
 }

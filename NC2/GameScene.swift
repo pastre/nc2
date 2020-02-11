@@ -30,23 +30,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerNode = childNode(withName: "player") as! SKSpriteNode
         
         let enemyNode = SKSpriteNode()
-        let bgRootNode = SKNode()
         
-        let bgNode = self.childNode(withName: "background") as! SKSpriteNode
         
-        bgNode.removeFromParent()
+        let bgRootNode = self.childNode(withName: "bgRoot")!
+//        let bgNode = self.childNode(withName: "background") as! SKSpriteNode
+        
+//        bgNode.removeFromParent()
         
         bgRootNode.zPosition = ZPositionManager.BACKGROUND.rawValue
         
         self.player = Player(playerNode, scene: self)
         self.enemiesManager = SpawnCoordinator(enemyNode, scene: self)
         
-        self.backgroundManager = BackgroundManager(root: bgRootNode, background: bgNode)
+//        self.backgroundManager = BackgroundManager(root: bgRootNode, background: bgNode)
 //        self.streetManager = ScenarioNode(reference: streetNode)
+        
+        self.backgroundManager = BackgroundManager(root: bgRootNode)
         
         self.scoreLabel = self.childNode(withName: "score") as! SKLabelNode
         
-        SpeedManager.instance.setPlayer(to: self.player)
+        
         
         ground.physicsBody?.categoryBitMask = ContactMask.ground.rawValue
         ground.physicsBody?.collisionBitMask = ContactMask.player.rawValue
@@ -63,7 +66,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         self.addChild(enemyNode)
-        self.addChild(bgRootNode)
         
         
 //        streetNode.addChild(streetManager)
@@ -112,18 +114,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lastUpdate = currentTime
             return
         }
-        let deltaTime = currentTime - self.lastUpdate
         
-//        if deltaTime > 0.1 { return }
+        let deltaTime = currentTime - self.lastUpdate
+        self.lastUpdate = currentTime
+        
+        if deltaTime > 0.1 { return }
         
 //        self.streetManager.update(deltaTime)
         self.backgroundManager.update(deltaTime)
         
         self.gameObjects.forEach { $0.update(deltaTime) }
-        
+        SpeedManager.instance.update(deltaTime)
         self.scoreLabel.text = "Score: \(Int(self.player.walkedDistance))"
         
-        self.lastUpdate = currentTime
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
