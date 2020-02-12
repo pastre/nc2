@@ -161,7 +161,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if other.name!.contains("enemy") {
             self.onGameOver()
         }
-        
     }
     
     func getPlayer() -> Player {

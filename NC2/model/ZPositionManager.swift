@@ -13,6 +13,8 @@ enum ZPositionManager: CGFloat  {
     case BACKGROUND = -2
     case STREET = -1
     case MOSS_CONECTOR = 0
+    case PLAYER = 100
+    case PLAYER_FIRE = 9
     
     case PENGUIN = 2
     case MISSLE = 3

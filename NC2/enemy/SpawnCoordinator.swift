@@ -18,9 +18,11 @@ class SpawnCoordinator: EnemyManager {
     override init(_ node: SKSpriteNode, scene: GameScene, spawnRate: TimeInterval = TimeInterval(1)) {
         super.init(node, scene: scene)
         self.managers = [
-            LaserEnemyManger(node, scene: scene),
-            MissleEnemyManager(node, scene: scene),
-            PenguinEnemyManager(node, scene: scene)
+//            LaserEnemyManger(node, scene: scene),
+MissleEnemyManager(node, scene: scene),
+MissleEnemyManager(node, scene: scene),
+MissleEnemyManager(node, scene: scene),
+//            PenguinEnemyManager(node, scene: scene)
         ]
     }
     

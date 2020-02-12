@@ -25,8 +25,7 @@ class MissleEnemyManager: EnemyManager {
     override func deactivateEnemy(_ enemy: Enemy) {
         super.deactivateEnemy(enemy)
         
-        guard let e = enemy as? MissleEnemy else { return }
-        e.timeSinceSpawn = .zero
+        enemy.prepareForSpawn()
     }
     
     

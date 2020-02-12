@@ -11,6 +11,9 @@
 		D700480423F219C900623593 /* ZPositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700480323F219C900623593 /* ZPositionManager.swift */; };
 		D705676623EA022000A5E814 /* PlayerStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705676523EA022000A5E814 /* PlayerStates.swift */; };
 		D705676823EB0D7700A5E814 /* LaserEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705676723EB0D7700A5E814 /* LaserEnemy.swift */; };
+		D765C23C23F481BF006F9838 /* BatcarFire.sks in Resources */ = {isa = PBXBuildFile; fileRef = D765C23B23F481BF006F9838 /* BatcarFire.sks */; };
+		D765C24023F4969F006F9838 /* MissleSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = D765C23E23F4969F006F9838 /* MissleSmoke.sks */; };
+		D765C24123F4969F006F9838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D765C23F23F4969F006F9838 /* Assets.xcassets */; };
 		D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */; };
 		D7BDBF0423E9D785003D47C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */; };
 		D7BDBF0623E9D785003D47C6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D7BDBF0523E9D785003D47C6 /* GameScene.sks */; };
@@ -37,6 +40,9 @@
 		D700480323F219C900623593 /* ZPositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPositionManager.swift; sourceTree = "<group>"; };
 		D705676523EA022000A5E814 /* PlayerStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStates.swift; sourceTree = "<group>"; };
 		D705676723EB0D7700A5E814 /* LaserEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemy.swift; sourceTree = "<group>"; };
+		D765C23B23F481BF006F9838 /* BatcarFire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BatcarFire.sks; sourceTree = "<group>"; };
+		D765C23E23F4969F006F9838 /* MissleSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MissleSmoke.sks; sourceTree = "<group>"; };
+		D765C23F23F4969F006F9838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemyManger.swift; sourceTree = "<group>"; };
 		D7BDBF0023E9D785003D47C6 /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,16 @@
 			path = enemy;
 			sourceTree = "<group>";
 		};
+		D765C23D23F49685006F9838 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				D765C23B23F481BF006F9838 /* BatcarFire.sks */,
+				D765C23E23F4969F006F9838 /* MissleSmoke.sks */,
+				D765C23F23F4969F006F9838 /* Assets.xcassets */,
+			);
+			path = particles;
+			sourceTree = "<group>";
+		};
 		D7A26F9523EB2DAA003B3061 /* core */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +145,10 @@
 		D7BDBF0223E9D785003D47C6 /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				D765C23D23F49685006F9838 /* particles */,
 				D705676923EB0FF300A5E814 /* enemy */,
 				D705676423E9FF3E00A5E814 /* gameplaykit */,
 				D7BDBF2323E9FC8E003D47C6 /* model */,
-				D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */,
 				D7BDBF0523E9D785003D47C6 /* GameScene.sks */,
 				D7BDBF0923E9D785003D47C6 /* GameScene.swift */,
 				D7BDBF0B23E9D785003D47C6 /* GameViewController.swift */,
@@ -140,6 +156,7 @@
 				D7BDBF1023E9D786003D47C6 /* Assets.xcassets */,
 				D7BDBF1223E9D786003D47C6 /* LaunchScreen.storyboard */,
 				D7BDBF1523E9D786003D47C6 /* Info.plist */,
+				D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */,
 			);
 			path = NC2;
 			sourceTree = "<group>";
@@ -232,9 +249,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D765C24023F4969F006F9838 /* MissleSmoke.sks in Resources */,
 				D7BDBF0F23E9D785003D47C6 /* Main.storyboard in Resources */,
 				D7BDBF0623E9D785003D47C6 /* GameScene.sks in Resources */,
 				D7BDBF1123E9D786003D47C6 /* Assets.xcassets in Resources */,
+				D765C24123F4969F006F9838 /* Assets.xcassets in Resources */,
+				D765C23C23F481BF006F9838 /* BatcarFire.sks in Resources */,
 				D7BDBF1423E9D786003D47C6 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

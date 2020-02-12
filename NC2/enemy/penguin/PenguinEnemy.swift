@@ -20,7 +20,7 @@ class PenguinEnemy: Enemy {
         
         
         
-        self.gravity = .random(in: 50...100)
+        self.gravity = .random(in: 20...80)
         
         return body
         
@@ -29,12 +29,10 @@ class PenguinEnemy: Enemy {
     override func update(_ deltaTime: TimeInterval) {
         super.update(deltaTime)
         
-        let dY = CGFloat(deltaTime) * self.gravity
+        let dY = CGFloat(deltaTime) * (self.gravity + super.getHorizontalSpeed() * UIScreen.main.bounds.height / UIScreen.main.bounds.width)
         
         self.node.position.y -= dY
     }
-    
-    
     
     override func configureEnemyTextures() {
         let sphere = SKSpriteNode(imageNamed: "penguin")

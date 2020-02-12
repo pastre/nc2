@@ -10,6 +10,13 @@ import GameplayKit
 
 class MissleTracking: GKState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        return stateClass == MissleLocked.self
+    }
+}
+
+class MissleLocked: GKState {
+    
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass == MissleShooting.self
     }
 }

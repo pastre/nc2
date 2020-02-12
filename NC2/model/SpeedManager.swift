@@ -19,10 +19,9 @@ class SpeedManager {
     var radius: CGFloat!
     
     private init() {
-        
-        self.currentSpeed = minVelocity
+        self.currentSpeed = 300// minVelocity
+        self.currentAngle = -1
         self.radius = (maxVelocity - minVelocity) / 2
-        
     }
     
     func getCurrentSpeed() -> CGFloat {

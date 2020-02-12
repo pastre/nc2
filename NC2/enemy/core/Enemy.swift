@@ -24,10 +24,6 @@ class Enemy: GameObject {
         
     }
     
-    func configureEnemyTextures() {
-        // Metodo abstrato chamado no init para configurar as texturas
-    }
-    
     func configureEnemyPhysics(_ body: SKPhysicsBody) {
         
         body.affectedByGravity = false
@@ -54,6 +50,11 @@ class Enemy: GameObject {
         
     }
     
+    
+    func configureEnemyTextures() {
+        // Metodo abstrato chamado no init para configurar as texturas
+    }
+    
     func getPhysicsBody() -> SKPhysicsBody {
         fatalError("\(self) did not implement getPhysicsBody")
     }
@@ -64,5 +65,9 @@ class Enemy: GameObject {
     
     func getHorizontalSpeed() -> CGFloat {
         return SpeedManager.instance.getCurrentSpeed() 
+    }
+    
+    func prepareForSpawn() {
+        
     }
 }
