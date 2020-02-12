@@ -15,8 +15,8 @@ class Player: GameObject {
     var walkedDistance: CGFloat = 0
     
     let walkingSpeed = 100
-    let maxVal: CGFloat = 150
-    let minVal: CGFloat = -150
+    let maxVal: CGFloat = 225
+    let minVal: CGFloat = -225
     
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
@@ -26,6 +26,8 @@ class Player: GameObject {
         
         self.stateMachine.enter(PlayerRunning.self)
     }
+    
+    
     
     func changeJetpack(isOn: Bool) {
         self.isJetpackOn = isOn
@@ -39,7 +41,7 @@ class Player: GameObject {
         
         if isJetpackOn {
             
-            body.applyForce(CGVector(dx: 0, dy: 150))
+            body.applyForce(CGVector(dx: 0, dy: 210))
         }
     
         let clamp: CGFloat = min(max(body.velocity.dy, self.minVal), self.maxVal)

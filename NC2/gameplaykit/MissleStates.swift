@@ -16,6 +16,6 @@ class MissleTracking: GKState {
 
 class MissleShooting: GKState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return false
+        return stateClass == MissleTracking.self
     }
 }

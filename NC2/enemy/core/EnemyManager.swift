@@ -66,6 +66,8 @@ class EnemyManager: GameObject {
                 self.startPosition = newEnemy.node.position
             }
             
+            self.prepareForSpawn(newEnemy)
+            
             node.addChild(newEnemy.node)
             
             self.activeEnemies.append(newEnemy)
@@ -76,6 +78,10 @@ class EnemyManager: GameObject {
         
         self.createInactiveEnemy(on: node)
         self.spawnEnemy(on: node)
+    }
+    
+    func prepareForSpawn(_ enemy: Enemy) {
+        
     }
     
     override func update(_ deltaTime: TimeInterval) {
@@ -89,7 +95,7 @@ class EnemyManager: GameObject {
                 self.deactivateEnemy(enemy)
             }
         }
-    }
+     }
     
     func clearAll() {
         self.activeEnemies.forEach { $0.node.removeFromParent() }

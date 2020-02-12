@@ -22,20 +22,15 @@ class MissleEnemy: Enemy {
     
     override func configureEnemyTextures() {
         self.stateMachine.enter(MissleTracking.self)
-        
-//        let sphere = SKShapeNode(circleOfRadius: 20)
     
         let node = SKSpriteNode(imageNamed: "missle")
-        
-//        sphere.fillColor = .blue
         
         node.scale(to: self.getSize())
         node.zPosition = ZPositionManager.MISSLE.rawValue
         
         self.node.addChild(node)
-        
-        
     }
+    
     
     override func update(_ deltaTime: TimeInterval) {
         
@@ -49,6 +44,7 @@ class MissleEnemy: Enemy {
             self.updateTracking()
             return
         }
+        
         
         super.update(deltaTime)
     }

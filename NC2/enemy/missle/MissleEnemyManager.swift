@@ -22,4 +22,19 @@ class MissleEnemyManager: EnemyManager {
         return MissleEnemy(node, scene: self.scene)
     }
     
+    override func deactivateEnemy(_ enemy: Enemy) {
+        super.deactivateEnemy(enemy)
+        
+        guard let e = enemy as? MissleEnemy else { return }
+        e.timeSinceSpawn = .zero
+    }
+    
+    
+    
+    override func prepareForSpawn(_ enemy: Enemy) {
+        guard let enemy = enemy as? MissleEnemy else { return }
+        
+        enemy.node.zPosition = ZPositionManager.MISSLE.rawValue
+        enemy.stateMachine.enter(MissleTracking.self)
+    }
 }
