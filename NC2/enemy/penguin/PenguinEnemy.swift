@@ -34,7 +34,7 @@ class PenguinEnemy: Enemy {
         self.node.position.y -= dY
     }
     
-    override func configureEnemyTextures() {
+    override func configureTextures() {
         let sphere = SKSpriteNode(imageNamed: "penguin")
         
         sphere.scale(to: self.getSize())

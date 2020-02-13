@@ -8,23 +8,12 @@
 
 import SpriteKit
 
-class Enemy: GameObject {
+class Enemy: Interactable {
     
     var hasSpawned: Bool! = false
     var isDead: Bool = false
     
-    
-    override init(_ node: SKSpriteNode, scene: GameScene) {
-        super.init(node, scene: scene)
-        
-        let body = self.getPhysicsBody()
-        
-        self.configureEnemyPhysics(body)
-        self.configureEnemyTextures()
-        
-    }
-    
-    func configureEnemyPhysics(_ body: SKPhysicsBody) {
+    override func configurePhysics(_ body: SKPhysicsBody) {
         
         body.affectedByGravity = false
         body.allowsRotation = false
@@ -40,31 +29,15 @@ class Enemy: GameObject {
     }
     
     override func update(_ deltaTime: TimeInterval) {
-        
         let displacement = CGFloat(deltaTime) * self.getHorizontalSpeed()
-        
         
         node.position.x -= displacement
         
-        
-        
     }
     
-    
-    func configureEnemyTextures() {
-        // Metodo abstrato chamado no init para configurar as texturas
-    }
-    
-    func getPhysicsBody() -> SKPhysicsBody {
-        fatalError("\(self) did not implement getPhysicsBody")
-    }
     
     override func getNodeName() -> String {
         return "enemy"
-    }
-    
-    func getHorizontalSpeed() -> CGFloat {
-        return SpeedManager.instance.getCurrentSpeed() 
     }
     
     func prepareForSpawn() {

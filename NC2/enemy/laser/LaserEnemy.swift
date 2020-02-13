@@ -20,7 +20,7 @@ class LaserEnemy: Enemy {
         self.node.zRotation = self.getZRotation()
     }
     
-    override func configureEnemyTextures() {
+    override func configureTextures() {
         
         let sphereRadius = self.size.width / 2
         

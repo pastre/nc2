@@ -55,8 +55,7 @@ class Player: GameObject {
         let body = self.node.physicsBody!
         
         self.walkedDistance += CGFloat(deltaTime) * SpeedManager.instance.getCurrentSpeed()
-        
-        
+    
         if isJetpackOn {
             body.applyForce(CGVector(dx: 0, dy: 210))
         }

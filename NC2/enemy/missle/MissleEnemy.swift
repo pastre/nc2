@@ -23,7 +23,7 @@ class MissleEnemy: Enemy {
         return SKPhysicsBody(texture: SKTexture(imageNamed: "missle"), alphaThreshold: 0.9, size: self.getSize())
     }
     
-    override func configureEnemyTextures() {
+    override func configureTextures() {
         self.stateMachine.enter(MissleTracking.self)
     
         let node = SKSpriteNode(imageNamed: "missle")
