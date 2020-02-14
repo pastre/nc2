@@ -16,6 +16,13 @@
 		D765C24123F4969F006F9838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D765C23F23F4969F006F9838 /* Assets.xcassets */; };
 		D765C24323F5C707006F9838 /* Pickable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C24223F5C707006F9838 /* Pickable.swift */; };
 		D765C24723F5D0AA006F9838 /* Interactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C24623F5D0AA006F9838 /* Interactable.swift */; };
+		D765C24A23F5D21E006F9838 /* ContactMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C24923F5D21E006F9838 /* ContactMask.swift */; };
+		D765C24C23F5D23F006F9838 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C24B23F5D23F006F9838 /* Utils.swift */; };
+		D765C24E23F6D4E4006F9838 /* Coin.sks in Resources */ = {isa = PBXBuildFile; fileRef = D765C24D23F6D4E4006F9838 /* Coin.sks */; };
+		D765C25023F6D631006F9838 /* CoinNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C24F23F6D631006F9838 /* CoinNode.swift */; };
+		D765C25223F6D737006F9838 /* CoinFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C25123F6D737006F9838 /* CoinFactory.swift */; };
+		D765C25423F6E0EE006F9838 /* CoinSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C25323F6E0EE006F9838 /* CoinSpawner.swift */; };
+		D765C25623F6E23B006F9838 /* GaussianDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765C25523F6E23B006F9838 /* GaussianDistribution.swift */; };
 		D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */; };
 		D7BDBF0423E9D785003D47C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */; };
 		D7BDBF0623E9D785003D47C6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D7BDBF0523E9D785003D47C6 /* GameScene.sks */; };
@@ -47,6 +54,13 @@
 		D765C23F23F4969F006F9838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D765C24223F5C707006F9838 /* Pickable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickable.swift; sourceTree = "<group>"; };
 		D765C24623F5D0AA006F9838 /* Interactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactable.swift; sourceTree = "<group>"; };
+		D765C24923F5D21E006F9838 /* ContactMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMask.swift; sourceTree = "<group>"; };
+		D765C24B23F5D23F006F9838 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		D765C24D23F6D4E4006F9838 /* Coin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Coin.sks; sourceTree = "<group>"; };
+		D765C24F23F6D631006F9838 /* CoinNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinNode.swift; sourceTree = "<group>"; };
+		D765C25123F6D737006F9838 /* CoinFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFactory.swift; sourceTree = "<group>"; };
+		D765C25323F6E0EE006F9838 /* CoinSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSpawner.swift; sourceTree = "<group>"; };
+		D765C25523F6E23B006F9838 /* GaussianDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaussianDistribution.swift; sourceTree = "<group>"; };
 		D7A26F9323EB2CF8003B3061 /* LaserEnemyManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserEnemyManger.swift; sourceTree = "<group>"; };
 		D7BDBF0023E9D785003D47C6 /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				D765C24223F5C707006F9838 /* Pickable.swift */,
+				D765C24F23F6D631006F9838 /* CoinNode.swift */,
+				D765C25323F6E0EE006F9838 /* CoinSpawner.swift */,
 			);
 			path = pickable;
 			sourceTree = "<group>";
@@ -125,8 +141,19 @@
 			children = (
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
 				D765C24623F5D0AA006F9838 /* Interactable.swift */,
+				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,
 			);
 			path = core;
+			sourceTree = "<group>";
+		};
+		D765C24823F5D211006F9838 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D765C24923F5D21E006F9838 /* ContactMask.swift */,
+				D765C24B23F5D23F006F9838 /* Utils.swift */,
+				D765C25523F6E23B006F9838 /* GaussianDistribution.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		D7A26F9523EB2DAA003B3061 /* core */ = {
@@ -166,20 +193,22 @@
 		D7BDBF0223E9D785003D47C6 /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				D765C24823F5D211006F9838 /* utils */,
 				D765C24523F5C7DA006F9838 /* core */,
 				D765C24423F5C723006F9838 /* pickable */,
 				D765C23D23F49685006F9838 /* particles */,
 				D705676923EB0FF300A5E814 /* enemy */,
 				D705676423E9FF3E00A5E814 /* gameplaykit */,
 				D7BDBF2323E9FC8E003D47C6 /* model */,
-				D7BDBF0523E9D785003D47C6 /* GameScene.sks */,
 				D7BDBF0923E9D785003D47C6 /* GameScene.swift */,
+				D7BDBF0523E9D785003D47C6 /* GameScene.sks */,
 				D7BDBF0B23E9D785003D47C6 /* GameViewController.swift */,
 				D7BDBF0D23E9D785003D47C6 /* Main.storyboard */,
 				D7BDBF1023E9D786003D47C6 /* Assets.xcassets */,
 				D7BDBF1223E9D786003D47C6 /* LaunchScreen.storyboard */,
 				D7BDBF1523E9D786003D47C6 /* Info.plist */,
 				D7BDBF0323E9D785003D47C6 /* AppDelegate.swift */,
+				D765C24D23F6D4E4006F9838 /* Coin.sks */,
 			);
 			path = NC2;
 			sourceTree = "<group>";
@@ -187,10 +216,10 @@
 		D7BDBF2323E9FC8E003D47C6 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,
 				D7C3DF1E23ECA418002C891D /* Background.swift */,
 				D700480123EF10A600623593 /* SpeedManager.swift */,
 				D700480323F219C900623593 /* ZPositionManager.swift */,
+				D765C25123F6D737006F9838 /* CoinFactory.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -277,6 +306,7 @@
 				D7BDBF1123E9D786003D47C6 /* Assets.xcassets in Resources */,
 				D765C24123F4969F006F9838 /* Assets.xcassets in Resources */,
 				D765C23C23F481BF006F9838 /* BatcarFire.sks in Resources */,
+				D765C24E23F6D4E4006F9838 /* Coin.sks in Resources */,
 				D7BDBF1423E9D786003D47C6 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,9 +318,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D765C25023F6D631006F9838 /* CoinNode.swift in Sources */,
 				D700480423F219C900623593 /* ZPositionManager.swift in Sources */,
 				D7C3DF1623EB422B002C891D /* MissleStates.swift in Sources */,
 				D7BDBF1C23E9DB8C003D47C6 /* Player.swift in Sources */,
+				D765C25223F6D737006F9838 /* CoinFactory.swift in Sources */,
 				D7C3DF1B23EB4AE7002C891D /* PenguinEnemyManager.swift in Sources */,
 				D705676623EA022000A5E814 /* PlayerStates.swift in Sources */,
 				D765C24323F5C707006F9838 /* Pickable.swift in Sources */,
@@ -299,9 +331,13 @@
 				D7BDBF1E23E9DE81003D47C6 /* Enemy.swift in Sources */,
 				D7BDBF2023E9DF18003D47C6 /* GameObject.swift in Sources */,
 				D7BDBF2223E9E2AA003D47C6 /* EnemyManager.swift in Sources */,
+				D765C25623F6E23B006F9838 /* GaussianDistribution.swift in Sources */,
 				D7C3DF1323EB40B2002C891D /* MissleEnemyManager.swift in Sources */,
+				D765C24A23F5D21E006F9838 /* ContactMask.swift in Sources */,
 				D765C24723F5D0AA006F9838 /* Interactable.swift in Sources */,
 				D7BDBF0A23E9D785003D47C6 /* GameScene.swift in Sources */,
+				D765C25423F6E0EE006F9838 /* CoinSpawner.swift in Sources */,
+				D765C24C23F5D23F006F9838 /* Utils.swift in Sources */,
 				D7C3DF1123EB40A5002C891D /* MissleEnemy.swift in Sources */,
 				D7A26F9423EB2CF8003B3061 /* LaserEnemyManger.swift in Sources */,
 				D700480223EF10A600623593 /* SpeedManager.swift in Sources */,

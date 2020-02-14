@@ -11,6 +11,7 @@ import GameplayKit
 
 class SpawnCoordinator: EnemyManager {
     
+    let coinSpawner = CoinSpawner()
     var managers: [EnemyManager]!
     var nextSpawnThreshold = TimeInterval(0)
     let distribution = MyGaussianDistribution(randomSource: .init(), mean: 1, deviation: 0.5)
@@ -31,6 +32,11 @@ class SpawnCoordinator: EnemyManager {
     func spawn() {
         
         let random = Int.random(in: 0...100)
+        
+        if random < 25 {
+            self.coinSpawner.spawnCoinStructure(on: self.node)
+            return 
+        }
         
         if random < 50 {
             self.managers[0].spawnEnemy(on: self.node)
@@ -58,26 +64,3 @@ class SpawnCoordinator: EnemyManager {
     }
 }
 
-class MyGaussianDistribution {
-    private let randomSource: GKRandomSource
-    let mean: Float
-    let deviation: Float
-
-    init(randomSource: GKRandomSource, mean: Float, deviation: Float) {
-        precondition(deviation >= 0)
-        self.randomSource = randomSource
-        self.mean = mean
-        self.deviation = deviation
-    }
-
-    func nextFloat() -> Float {
-        guard deviation > 0 else { return mean }
-
-        let x1 = randomSource.nextUniform() // a random number between 0 and 1
-        let x2 = randomSource.nextUniform() // a random number between 0 and 1
-        let z1 = sqrt(-2 * log(x1)) * cos(2 * Float.pi * x2) // z1 is normally distributed
-
-        // Convert z1 from the Standard Normal Distribution to our Normal Distribution
-        return z1 * deviation + mean
-    }
-}

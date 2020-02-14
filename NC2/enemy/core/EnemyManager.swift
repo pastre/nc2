@@ -8,15 +8,6 @@
 
 import SpriteKit
 
-enum ContactMask: UInt32 {
-    case player = 0b1
-    case enemy = 0b10
-    case coin = 0b100
-    case ground = 0b10000
-    
-    case none = 0b00000000000000000000000000000000
-}
-
 class EnemyManager: GameObject {
     
     var activeEnemies: [Enemy]! = [Enemy]()

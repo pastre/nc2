@@ -9,12 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-func loadParticle(named: String) -> SKEmitterNode? {
-    guard let path = Bundle.main.path(forResource: named, ofType: "sks") else { return nil }
-    
-    return NSKeyedUnarchiver.unarchiveObject(withFile: path) as? SKEmitterNode
-}
-
 class Player: GameObject {
     
     var isJetpackOn = false

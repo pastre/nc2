@@ -8,27 +8,28 @@
 
 import SpriteKit
 
-class Pickable: GameObject {
+class Pickable: Interactable {
+
     
-    override init(_ node: SKSpriteNode, scene: GameScene) {
-        super.init(node, scene: scene)
+    override func configurePhysics(_ body: SKPhysicsBody) {
         
-        let body = self.getPhysicsBody()
+        body.affectedByGravity = false
+        body.allowsRotation = false
+        body.pinned = false
         
-        self.configurePickablePhysics(body)
-        self.configurePickableTexture()
+        body.isDynamic = false
+        body.categoryBitMask = ContactMask.enemy.rawValue
+        body.collisionBitMask = 0
+        body.contactTestBitMask = ContactMask.player.rawValue
+        
+        node.physicsBody = body
+
     }
     
-    func configurePickablePhysics(_ body: SKPhysicsBody) {
+    override func update(_ deltaTime: TimeInterval) {
+        let displacement = CGFloat(deltaTime) * self.getHorizontalSpeed()
+        
+        node.position.x -= displacement
         
     }
-    
-    func configurePickableTexture() {
-        
-    }
-    
-    func getPhysicsBody() -> SKPhysicsBody {
-        fatalError("\(self) did not implement getPhysicsBody")
-    }
-    
 }
