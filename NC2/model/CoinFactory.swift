@@ -21,18 +21,27 @@ class CoinFactory{
         let node = scene.childNode(withName: "group")
         node?.removeFromParent()
         
+//        node?.children.forEach({ (child) in
+//            if let sprite = child as? SKSpriteNode {
+//                let sprites = sprite.value(forKey: "actions") as? NSArray
+//                print("------", sprites?.firstObject)
+//            }
+//        })
+        
         return node
         
     }
     
-    static func loadPatters() {
-        let sceneNames = ["Coin"]
+    static func loadPatters(_ scene: SKScene) {
+        /*let sceneNames = ["group"]
         
         for name in sceneNames {
             if let node = self.loadScene(named: name) {
                 self.loadedPatterns.append(node)
             }
-        }
+        }*/
+        let node = scene.childNode(withName: "group")!
+        self.loadedPatterns.append(node)
     }
     
     static func getCoinPattern() -> SKNode  {

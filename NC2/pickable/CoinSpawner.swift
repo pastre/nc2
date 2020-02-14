@@ -39,6 +39,7 @@ class CoinSpawner: Interactable{
     }
     
     
+    
     override func getPhysicsBody() -> SKPhysicsBody {
         return .init(circleOfRadius: 0)
     }
