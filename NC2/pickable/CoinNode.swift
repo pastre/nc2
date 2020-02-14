@@ -6,24 +6,23 @@
 //  Copyright © 2020 Bruno Pastre. All rights reserved.
 //
 
-//import SpriteKit
-//
-//class CoinSpriteNode: SKSpriteNode {
-//    
-//    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-//        super.init(texture: texture, color: color, size: size)
-//        self.commonInit()
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        
-//        self.commonInit()
-//    }
-//    
-//    func commonInit() {
-//        let atlas =
-//    }
-//    
-//    
-//}
+import SpriteKit
+
+class Coin: Pickable {
+    
+    
+    override func configureTextures() {
+        let texture = SKSpriteNode()
+        
+        texture.color = .green
+        
+        self.node.addChild(texture)
+    }
+    
+    override func getPhysicsBody() -> SKPhysicsBody {
+        return SKPhysicsBody(circleOfRadius: 20)
+    }
+    
+    
+    
+}

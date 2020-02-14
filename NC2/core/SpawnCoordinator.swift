@@ -46,7 +46,7 @@ class SpawnCoordinator: EnemyManager {
             return
         }
         
-        if random < 70 {
+        if random < 75 {
             self.managers[1].spawnEnemy(on: self.node)
             return
         }

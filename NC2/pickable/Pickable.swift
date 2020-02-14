@@ -18,7 +18,7 @@ class Pickable: Interactable {
         body.pinned = false
         
         body.isDynamic = false
-        body.categoryBitMask = ContactMask.enemy.rawValue
+        body.categoryBitMask = ContactMask.coin.rawValue
         body.collisionBitMask = 0
         body.contactTestBitMask = ContactMask.player.rawValue
         

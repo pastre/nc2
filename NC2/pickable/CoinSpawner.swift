@@ -17,6 +17,8 @@ class CoinSpawner: Interactable{
         
         node.addChild(structure)
         
+        structure.position.x += self.scene.size.width
+        
         self.coinStructures.append(structure)
     }
     
