@@ -10,7 +10,6 @@ import SpriteKit
 
 class CoinSpawner: Interactable{
     
-    
     var coinStructures: [SKNode] = []
     
     func spawnCoinStructure(on node: SKNode) {

@@ -147,6 +147,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.enemiesManager.clearAll()
         self.player.reset()
+        SpeedManager.instance.onGameOver()
+        
         if self.gameOverLabel.parent != nil { return }
         
         self.addChild(self.gameOverLabel)

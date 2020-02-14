@@ -66,5 +66,6 @@ class SpawnCoordinator: EnemyManager {
         self.coinSpawner.update(deltaTime)
         self.managers.forEach { $0.update(deltaTime) }
     }
+    
 }
 
