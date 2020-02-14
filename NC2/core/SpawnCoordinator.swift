@@ -11,13 +11,15 @@ import GameplayKit
 
 class SpawnCoordinator: EnemyManager {
     
-    let coinSpawner = CoinSpawner()
+    var coinSpawner: CoinSpawner!
     var managers: [EnemyManager]!
     var nextSpawnThreshold = TimeInterval(0)
     let distribution = MyGaussianDistribution(randomSource: .init(), mean: 1, deviation: 0.5)
     
     override init(_ node: SKSpriteNode, scene: GameScene, spawnRate: TimeInterval = TimeInterval(1)) {
         super.init(node, scene: scene)
+        
+        self.coinSpawner = CoinSpawner(node, scene: scene)
         self.managers = [
             LaserEnemyManger(node, scene: scene),
             MissleEnemyManager(node, scene: scene),
@@ -26,6 +28,7 @@ class SpawnCoordinator: EnemyManager {
     }
     
     override func clearAll() {
+        self.coinSpawner.onGameOver()
         self.managers.forEach { $0.clearAll() }
     }
     
@@ -60,6 +63,7 @@ class SpawnCoordinator: EnemyManager {
             self.nextSpawnThreshold = TimeInterval(self.distribution.nextFloat())
         }
         
+        self.coinSpawner.update(deltaTime)
         self.managers.forEach { $0.update(deltaTime) }
     }
 }

@@ -111,7 +111,6 @@
 				D7C3DF0F23EB408F002C891D /* missle */,
 				D7A26F9623EB2DB2003B3061 /* laser */,
 				D7A26F9523EB2DAA003B3061 /* core */,
-				D7C3DF1C23EB4FC0002C891D /* SpawnCoordinator.swift */,
 			);
 			path = enemy;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 		D765C24523F5C7DA006F9838 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				D7C3DF1C23EB4FC0002C891D /* SpawnCoordinator.swift */,
 				D7BDBF1F23E9DF18003D47C6 /* GameObject.swift */,
 				D765C24623F5D0AA006F9838 /* Interactable.swift */,
 				D7BDBF1B23E9DB8C003D47C6 /* Player.swift */,

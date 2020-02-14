@@ -144,6 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func onGameOver() {
+        
         self.enemiesManager.clearAll()
         self.player.reset()
         if self.gameOverLabel.parent != nil { return }
