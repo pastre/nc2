@@ -25,7 +25,7 @@ class EnemyManager: GameObject {
         
         super.init(node, scene: scene)
         
-        self.minY = GameObject.self.getScreenHeight() / -2
+        self.minY = GameObject.getScreenHeight() / -2
         self.maxY = GameObject.getScreenHeight() / 2
         self.spawnRate = spawnRate
         

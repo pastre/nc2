@@ -12,14 +12,14 @@ import GameplayKit
 class Player: GameObject {
     
     var isJetpackOn = false
-    var walkedDistance: CGFloat = 0
+    private var walkedDistance: CGFloat = 0
     
     let walkingSpeed = 100
     let maxVal: CGFloat = 225
     let minVal: CGFloat = -225
     
     var fireParticle: SKEmitterNode!
-    
+    private var currentCoin: Int = 0
     
     let stateMachine: GKStateMachine! = GKStateMachine(states: [PlayerRunning(), PlayerFlying(), PlayerFalling()])
     
@@ -82,6 +82,10 @@ class Player: GameObject {
         self.fireParticle.removeFromParent()
     }
     
+    func getWalkingDistance() -> Int {
+        return Int(self.walkedDistance / 50)
+    }
+    
     
     func updatePlayerState(_ dy: CGFloat) {
 
@@ -94,8 +98,17 @@ class Player: GameObject {
         }
     }
     
+    func onCoinCollected() {
+        self.currentCoin += 1
+    }
+    
+    func getCoinCount() -> Int {
+        return self.currentCoin
+    }
+    
     func reset() {
         self.walkedDistance = 0
+        self.currentCoin = 0
     }
     
     override func getNodeName() -> String {

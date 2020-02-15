@@ -19,6 +19,8 @@ class CoinSpawner: Interactable{
         
         structure.position.x = self.scene.size.width
         
+        structure.position.y = .random(in: GameObject.getScreenHeight() / -2...GameObject.getScreenHeight() / 2)
+        
         self.coinStructures.append(structure)
     }
     

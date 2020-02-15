@@ -22,6 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameOverLabel = SKLabelNode(text: "Perdeu!!!!")
     var scoreLabel: SKLabelNode!
+    var coinsLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
         
@@ -48,6 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.backgroundManager = BackgroundManager(root: bgRootNode)
         
         self.scoreLabel = self.childNode(withName: "score") as! SKLabelNode
+        self.coinsLabel = self.childNode(withName: "coins") as! SKLabelNode
         
         
         
@@ -125,7 +127,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.gameObjects.forEach { $0.update(deltaTime) }
         SpeedManager.instance.update(deltaTime)
-        self.scoreLabel.text = "Score: \(Int(self.player.walkedDistance))"
+        
+        self.scoreLabel.text = "Score: \(String(format: "%04d", self.player.getWalkingDistance()))m"
         
     }
     
@@ -147,6 +150,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.enemiesManager.clearAll()
         self.player.reset()
+        
+        self.updateCoinLabel()
         SpeedManager.instance.onGameOver()
         
         if self.gameOverLabel.parent != nil { return }
@@ -160,9 +165,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func onCoinPick(_ coin: SKSpriteNode) {
+        self.player.onCoinCollected()
+        let pos = coin.position
+        
+        coin.removeFromParent()
+        self.updateCoinLabel()
+    }
+    
+    func updateCoinLabel() {
+        
+        self.coinsLabel.text = "Coins: \(String(format: "%03d", self.player.getCoinCount()))"
+    }
+    
     func playerCollision(playerNode: SKNode, other: SKNode) {
         if other.name!.contains("enemy") {
             self.onGameOver()
+        } else if other.name!.contains("coin") {
+            if let coin = other as? SKSpriteNode {
+                self.onCoinPick(coin)
+            }
         }
     }
     

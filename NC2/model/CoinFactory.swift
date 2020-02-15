@@ -20,13 +20,14 @@ class CoinFactory{
         
         let node = scene.childNode(withName: "group")
         node?.removeFromParent()
-        
-//        node?.children.forEach({ (child) in
-//            if let sprite = child as? SKSpriteNode {
-//                let sprites = sprite.value(forKey: "actions") as? NSArray
-//                print("------", sprites?.firstObject)
-//            }
-//        })
+        node?.children.forEach({ (node) in
+            node.name = "coin"
+            print("node",  node)
+            if let node = node as? SKSpriteNode {
+                print("Configured!")
+                node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "coin1"), alphaThreshold: 0.9, size: node.size)
+            }
+        })
         
         return node
         
@@ -40,7 +41,26 @@ class CoinFactory{
                 self.loadedPatterns.append(node)
             }
         }*/
-        let node = scene.childNode(withName: "group")!
+        guard let node = scene.childNode(withName: "group") else { return }
+        node.children.forEach({ (node) in
+            node.name = "coin"
+            
+            if let node = node as? SKSpriteNode {
+                
+                let body = SKPhysicsBody(circleOfRadius: 10)
+                body.affectedByGravity = false
+                body.allowsRotation = false
+                body.pinned = false
+                
+                body.isDynamic = false
+                body.categoryBitMask = ContactMask.coin.rawValue
+                body.collisionBitMask = 0
+                body.contactTestBitMask = ContactMask.player.rawValue
+                
+                node.physicsBody = body
+                print("Configured")
+            }
+        })
         self.loadedPatterns.append(node)
     }
     
